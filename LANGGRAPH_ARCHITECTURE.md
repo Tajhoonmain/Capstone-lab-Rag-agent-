@@ -2,7 +2,7 @@
 ## ClaimGuardian: State Machine Design
 
 **Version:** 1.0  
-**Date:** 2024
+**Date:** 2026
 
 ---
 
