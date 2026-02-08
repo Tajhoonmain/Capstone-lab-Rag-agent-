@@ -474,5 +474,5 @@ OR
 
 ---
 
-**Document Owner:** Solutions Architecture Team  
-**Last Updated:** 2024
+**Document Owner:** Maryam Taj
+**Last Updated:** 2026
