@@ -2,7 +2,6 @@
 ## ClaimGuardian: AI-Powered Insurance Claims Processing System
 
 **Version:** 1.0  
-**Date:** 2024  
 **Status:** Draft
 
 ---
@@ -279,6 +278,3 @@ The agent executes actions through Python tools and API integrations:
 **Phase 4 (Weeks 13-16):** Production deployment, monitoring, iterative improvement
 
 ---
-
-**Document Owner:** Solutions Architecture Team  
-**Last Updated:** 2024
