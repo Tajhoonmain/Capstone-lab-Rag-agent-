@@ -1,0 +1,20 @@
+Why does the ClaimGuardian agent need this data instead of relying on its pre-trained brain?
+
+The LLM (the "brain") has broad world knowledge and reasoning ability but does not have access to our specific, private, or up-to-date information. Grounding the agent in a RAG knowledge base is necessary for the following reasons:
+
+1) SPECIFICITY
+   The agent must apply *our* policy wording, *our* exclusions, and *our* coverage limits—not generic insurance knowledge. Pre-trained models do not know the exact clauses of "Homeowner Policy Standard v2," our repair cost benchmarks, or our system design. Without RAG, the agent might hallucinate coverage rules or cite non-existent clauses. In claims processing, incorrect policy interpretation leads to wrong approvals/denials and compliance risk.
+
+2) PRIVACY AND CONTROL
+   Policy documents and internal benchmarks are proprietary. They are not part of public training data. The only way to give the agent access to this content is to ingest it into a controlled knowledge base and retrieve it at query time. RAG keeps sensitive text out of model weights and allows us to update or revoke content without retraining.
+
+3) REAL-TIME AND VERSIONED CONTENT
+   Policies and benchmarks change (new versions, regional updates, regulatory changes). The pre-trained brain is static at release. With RAG, we can re-run ingestion when we publish new policy versions or update repair benchmarks, so the agent always reasons over the current, approved documents. Metadata such as last_updated and policy_version supports filtering by effective date or version.
+
+4) REDUCED HALLUCINATION AND AUDITABILITY
+   By retrieving relevant chunks and conditioning the LLM on them, we constrain answers to what is actually in our documents. That improves accuracy and makes it possible to cite source chunks (e.g., clause IDs, section names) in decision rationales, which is essential for audits and regulatory compliance in InsurTech.
+
+5) DOMAIN WORKFLOW
+   The agent's role is to validate claims against *our* policies and *our* benchmarks—not to invent rules. RAG makes the agent's reasoning traceable to specific policy sections and reference data, which is required for escalation to human adjusters and for dispute resolution.
+
+In short: the agent needs this data because claims decisions must be based on the company's actual policy language and reference data, which are specific, private, and changing—none of which the pre-trained brain can provide by itself. RAG provides the "source memory" that grounds the agent in fact and keeps it from hallucinating.

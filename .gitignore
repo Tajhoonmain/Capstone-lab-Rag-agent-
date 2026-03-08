@@ -43,3 +43,18 @@ logs/
 dist/
 build/
 *.egg-info/
+
+# Lab 2: ChromaDB persistence (recreate with ingest_data.py)
+chroma_db/
+
+# Lab 5: SQLite persistence
+*.sqlite
+checkpoint_db.sqlite
+simple_checkpoint.sqlite
+
+# Artifacts and logs
+collaboration_trace.log
+agent_final_output.txt
+agent_final_success.txt
+persistence_error.log
+persistence_success.log
